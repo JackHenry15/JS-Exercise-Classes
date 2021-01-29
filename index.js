@@ -93,24 +93,18 @@ class Airplane {
       this.tank = (this.tank + gallons);
     }
     drive(distance){
-      if((this.tank > (distance/this.milesPerGallon)) || (this.tank = (distance/this.milesPerGallon))){
-        this.odometer = (this.odometer + distance);
+      if((distance <= (this.tank * this.milesPerGallon))){
         this.tank = (this.tank - (distance/this.milesPerGallon));
-        }
-        else if(this.tank < (distance/this.milesPerGallon)){
-          // this.tank = 0;
-          this.odometer = (this.tank * this.milesPerGallon); 
-          return `I ran out of fuel at ${this.odometer} miles!`;
-               
+        this.odometer = (this.odometer + distance);
         }else{
-          this.tank = (distance/this.milesPerGallon);
+          this.odometer = this.odometer + (this.tank * this.milesPerGallon);
+          this.tank = 0;
+          return `I ran out of fuel at ${this.odometer} miles!`
         }
+        return this.odometer, this.tank;
     }
   }
-  const vroomCar = new Car({
-    model: 'jeff',
-    milesPerGallon: 20
-  });
+
   
   
   /*
@@ -161,7 +155,7 @@ class Airplane {
       return `Today we are learning about ${subject}.`;
     }
     grade(student, subject){
-      return `${student1.name} receives a perfect score on ${subject}.`
+      return `${student.name} receives a perfect score on ${subject}.`
     }
  }
  const teacher = new Instructor({
@@ -229,12 +223,6 @@ class Airplane {
        this.gradClassName = attributes.gradClassName;
         this.favInstructor = attributes.favInstructor;
      }
-     demo(){
-
-     }
-     grade(){
-
-     }
      standUp(){
 
      }
@@ -242,6 +230,8 @@ class Airplane {
 
      }
  }
+
+ 
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
