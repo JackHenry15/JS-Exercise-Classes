@@ -158,10 +158,10 @@ class Airplane {
       this.catchPhrase = attributes.catchPhrase;
     }
     demo(subject){
-      return `Today we learned about ${''}.`;
+      return `Today we are learning about ${subject}.`;
     }
     grade(student, subject){
-      return `${student1.name} receives a perfect score on ${'css'}.`
+      return `${student1.name} receives a perfect score on ${subject}.`
     }
  }
  const teacher = new Instructor({
@@ -200,13 +200,13 @@ class Airplane {
       this.favSubjects = attributes.favSubjects;
     }
     listSubjects(){
-
+     return `${this.favSubjects}`;
     }
-    PRAssignment(){
-
+    PRAssignment(subject){
+      return `${this.name} has dubmitted a PR for ${subject}`;
     }
-    sprintChallenge(){
-      
+    sprintChallenge(subject){
+      return `${this.name} has begun sprint challenge on ${subject}`;
     }
  }
   
